@@ -1,10 +1,16 @@
 import express from "express"
 import dotenv from 'dotenv';
+import cors from 'cors'
 
 dotenv.config();
+const corsOptions = {
+  credentials: true,
+  origin: '*'
+}
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+app.use(cors(corsOptions));
 
 const API_URL =
   "https://api.football-data.org/v4/teams/61/matches?status=SCHEDULED";
